@@ -24,5 +24,31 @@ Following the ngModel directive, our forms have other directives used for valida
 
 We can also see this when we inspect individual HTML elements. For example, try inspecting the email input. Try inputting a valid email. You will see some attributes change like ng-dirty and ng-valid (which angular added automatically). 
 
+Also notice that the submit button is disabled... this is done using property binding. You can see it in the button element. The form fields are also red if they are 1) touched... and 2) invalid. This is defined in the CSS file.
+
+What about error messages for invalid forms? Notice our email input has #email = "ngModel". This is how we get access to the validity of the email input. Note the Boostrap help-block element below it. NgIf the email IS NOT valid and IS touched, then the helpbox appears. Notice that the template is directly accessing elements of the form control.
+
 Here are some other built-in validators for Angular: https://angular.io/api/forms/Validators
+
+#### Default form Values
+
+We can do this two ways...
+
+First, using property binding. The app component has a string called defaultQuestion = 'pet'. Notice in the template, this is referenced using property binding in the email input. The value 'pet' actually links it to option below it that also has the value 'pet'. This is how we make that option the default choice in the dropdown.
+
+We can also use two-way binding. Notice how the security question's answer uses two-way binding...
+
+
+#### Grouping Form Controls
+
+If we have a rather larger form, we might want to group related controls together (so the form appears more organized). For example, when we inspect the form object in the browser console, the newer, more-viewable, organization would be an advantage. This is easy in the template-driven approach.
+
+Notice the ngModelGroup directive in the template. It's set equal to a string (in our case 'userData'). If we inspect the 'value' property of the form, we can see that 'userData' exists here. The form's 'control' property also has 'userData' now.
+
+The #userData reference allows us to display error messages if any member of the group is not valid. We can see this implemented with the ngFormGroup directive, and coded below the formGroup itself.
+
+#### Radio Buttons
+
+
+
 

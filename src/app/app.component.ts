@@ -16,6 +16,8 @@ export class AppComponent {
   // This is useful we need to access the form earlier than the moment we submit it.
   // Remember to use static: true, for Angular 8+
   @ViewChild('bandit', {static: true}) signUpForm: NgForm;
+  defaultQuestion = 'pet';
+  answer = "";
 
   onSubmit() {
     console.log(this.signUpForm)
