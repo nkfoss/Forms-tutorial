@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,9 +8,19 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
-  onSubmit(form: NgForm) {
-    console.log(form);
+  // onSubmit(form: NgForm) {
+  //   console.log(form);
+  // }
+
+  // This is just an alternative to the commented out code above.
+  // This is useful we need to access the form earlier than the moment we submit it.
+  // Remember to use static: true, for Angular 8+
+  @ViewChild('bandit', {static: true}) signUpForm: NgForm;
+
+  onSubmit() {
+    console.log(this.signUpForm)
   }
+
   suggestUserName() {
     const suggestedName = 'Superuser';
   }
