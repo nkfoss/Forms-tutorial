@@ -43,7 +43,7 @@
           [ngModel]="defaultQuestion"
           name="secret"
           required>
-            <option value="pet">Your first Pet?</option>
+            <option value="pet">your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
@@ -53,7 +53,21 @@
           rows="3"
           [(ngModel)]="answer"> </textarea>
         </div>
+
         <p>Your reply: {{ answer }} </p>
+
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input 
+            type="radio"
+            name="gender"
+            ngModel
+            [value]="gender"
+            required>
+            {{ gender }}
+          </label>
+
+        </div>
         <button class="btn btn-primary" 
         type="submit"
         [disabled]="!bandit.valid"> Submit </button>

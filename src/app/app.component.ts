@@ -18,6 +18,7 @@ export class AppComponent {
   @ViewChild('bandit', {static: true}) signUpForm: NgForm;
   defaultQuestion = 'pet';
   answer = "";
+  genders = ['male', 'female'];
 
   onSubmit() {
     console.log(this.signUpForm)
