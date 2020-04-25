@@ -16,12 +16,30 @@ export class AppComponent {
   // This is useful we need to access the form earlier than the moment we submit it.
   // Remember to use static: true, for Angular 8+
   @ViewChild('bandit', {static: true}) signUpForm: NgForm;
+
   defaultQuestion = 'pet';
   answer = "";
   genders = ['male', 'female'];
 
+  user = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    answer: '',
+    gender: ''
+  }
+  submitted = false;
+
   onSubmit() {
-    console.log(this.signUpForm)
+    console.log(this.signUpForm);
+
+    // Update our fields, so we can display them at the bottom of the page
+    this.submitted = true;
+    this.user.username = this.signUpForm.value.userData.username;
+    this.user.email = this.signUpForm.value.userData.email;
+    this.user.secretQuestion = this.signUpForm.value.secret;
+    this.user.answer = this.signUpForm.value.questionAnswer;
+    this.user.gender = this.signUpForm.value.gender;
   }
 
   // Here we are access our signUpForm and 'patch in' the value for username.
