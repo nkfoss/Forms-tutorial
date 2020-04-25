@@ -49,6 +49,14 @@ The #userData reference allows us to display error messages if any member of the
 
 #### Radio Buttons
 
+We implemented this with ngFor... for gender in our genders array... self explanatory.
+
+#### Setting and Patching Form values
+
+If we want to programmatically set a form value (for example, by clicking a button), there are many ways to do it. Two-way data binding would work well. 
+
+In our case, we use the ViewChild. We can either 'patch-in' the value for the form we want to edit (which is how implemented it), or we can edit the entire form itself (not handy in our situation, so I've commented that implementation out).
+
 
 
 

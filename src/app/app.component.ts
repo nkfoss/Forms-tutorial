@@ -24,7 +24,29 @@ export class AppComponent {
     console.log(this.signUpForm)
   }
 
+  // Here we are access our signUpForm and 'patch in' the value for username.
+  // The alternative is the rewrite the entire form (commented out below this.)
   suggestUserName() {
     const suggestedName = 'Superuser';
+    this.signUpForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    })
   }
+
+  // This approach will overwrite lots of content that was already inputted.
+  // The advantage is we can set many values at once.
+//   suggestUserName() {
+//     const suggestedName = 'Superuser';
+//     this.signUpForm.setValue({
+//       userData: {
+//         username: suggestedName,
+//         email: ''
+//       },
+//       secret: 'pet',
+//       questionAnswer: '',
+//       gender: 'male'
+//     })}
+
 }
