@@ -40,6 +40,9 @@ export class AppComponent {
     this.user.secretQuestion = this.signUpForm.value.secret;
     this.user.answer = this.signUpForm.value.questionAnswer;
     this.user.gender = this.signUpForm.value.gender;
+
+    // The form also resets after submission
+    this.signUpForm.reset();
   }
 
   // Here we are access our signUpForm and 'patch in' the value for username.
